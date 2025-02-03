@@ -1,0 +1,208 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="generals.css">
+    <link rel="stylesheet" href="body.css">
+    <title>Add Travel Offer</title>
+</head>
+<body>
+    <header>
+        <div class="logo-esprit">
+            <a href="https://www.esprit.tn/" target="_blank">
+                <img src="logo_esprit.jpg" alt="Logo Esprit" height="50" width="150" >
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> 
+                <li><a href="#offers">Travel Offers</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 align="center">Add a Travel Offer</h1>
+    <form id="travelOfferForm" onsubmit="return validateForm()" action="submit_offer.php" method="POST">
+        <div align="center">
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter title" required>
+            <br><br>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
+            <br><br>
+
+            <label for="departureDate">Departure Date:</label>
+            <input type="date" id="departureDate" name="departureDate" required>
+            <br><br>
+
+            <label for="returnDate">Return Date:</label>
+            <input type="date" id="returnDate" name="returnDate" required>
+            <br><br>
+
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" step="0.01" placeholder="Enter price" required>
+            <br><br>
+
+            <label for="availability">Availability:</label>
+            <input type="number" id="availability" name="availability" placeholder="Enter availability" required>
+            <br><br>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="Adventure">Adventure</option>
+                <option value="Family">Family</option>
+                <option value="Couples">Couples</option>
+                <option value="Sports">Sports</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Add Offer</button>
+        </div>
+    </form>
+
+    <script>
+        function validateForm() {
+            // Validation JavaScript (comme avant)
+            const title = document.getElementById('title').value;
+            if (title.length < 3) {
+                alert("Title must be at least 3 characters long.");
+                return false;
+            }
+
+            const destination = document.getElementById('destination').value;
+            const destinationRegex = /^[A-Za-z\s]+$/;
+            if (!destinationRegex.test(destination) || destination.length < 3) {
+                alert("Destination must be at least 3 characters long and contain only letters and spaces.");
+                return false;
+            }
+
+            const departureDate = new Date(document.getElementById('departureDate').value);
+            const returnDate = new Date(document.getElementById('returnDate').value);
+            if (departureDate >= returnDate) {
+                alert("Return date must be after departure date.");
+                return false;
+            }
+
+            const price = parseFloat(document.getElementById('price').value);
+            if (isNaN(price) || price <= 0) {
+                alert("Price must be a positive number.");
+                return false;
+            }
+
+            const availability = parseInt(document.getElementById('availability').value);
+            if (isNaN(availability) || availability <= 0) {
+                alert("Availability must be a positive integer.");
+                return false;
+            }
+
+            alert("Travel offer added successfully!");
+            return true;
+        }
+    </script>
+</body>
+</html>
+<!---->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Add Travel Offer
+    </title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="generals.css">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <header>
+        <div class="logo-esprit">
+            <a href="https://www.esprit.tn/" target="_blank">
+                <img src="logo_esprit.jpg" alt="Logo Esprit" height="50" width="150" >
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#offers">Travel Offers</a><br></li>
+                <li><a href="#about">About</a><br></li>
+                <li><a href="#contact">Contact</a><br></li>
+            </ul>   
+        </nav>
+    </header>
+
+    <section>
+        <div class="header-content">
+            Add a Travel Offer 
+        </div>
+        <form action="dashboard.html" onsubmit="return validateForm()" method="post"> 
+            <div class="form-content">
+                <label for="title"> Title:</label>
+                <input type="text" id="title" name="title" placeholder="title..." required><br>
+                <label for="destination"> Destination:</label>
+                <input type="text" id="destination" name="destination" placeholder="destination..." required><br>
+                <label for="departureDate"> Departure Date:</label>
+                <input type="date" id="departureDate" name="departureDate" required><br>
+                <label for="returnDate"> Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate" required><br>
+                <label for="price"> Price:</label>
+                <input type="number" id="price" name="price" placeholder="price..." required><br>
+                <label for="availability"> Availability:</label>
+                <input type="checkbox" id="availability" name="availability"  required><br>
+                <label for="category"> Category:</label>
+                <select id="category" name="category"  required>
+                    <option value="Adventure">Adventure</option>
+                    <option value="family">Family</option>
+                    <option value="Couples">Couples</option>
+                    <option value="Sports">Sports</option>
+                </select><br>
+                <button type="submit">
+                    Add Offer
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <script>
+        function validateForm() {
+            //validation titre
+            const title = document.getElementById('title').value;
+            if (title.length<3) {
+                alert("Title must be at least 3 characters long.");
+                return false;
+            }
+            //validation destination
+            const destination = document.getElementById('destination').value;
+            const destinationRegex = /^[A-Za-z\s]+$/;
+            if (destination.length<3 || !destinationRegex.test(destination)) {
+                alert("Destination must be at least 3 characters long and contain only letters and spaces.")
+                return false;
+            }
+            //validation date
+            const departure_date = document.getElementById('departureDate').value;
+            const return_date = document.getElementById('returnDate').value;
+            if(departure_date>=return_date){
+                alert("Return date must be after departure date.");
+                return false;
+            }
+            //validation prix
+            const price = document.getElementById('price').value;
+            if(isNaN(price) || price<=0){
+                alert("Price must a positive number.");
+                return false;
+            }
+            //if all is valid , the form is submitted
+            alert("Travel offer added successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

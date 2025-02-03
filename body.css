@@ -1,0 +1,42 @@
+#about{
+    text-align: center;
+}
+.about-content{
+    margin: 0 auto;
+    font-size: 17.5px;
+    line-height: 1.25;
+    color: #66666d;
+}
+.about-content strong{
+    color: #007BFF;
+}
+
+footer{
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer a{
+    color: #007BFF;
+    text-decoration: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
+
+.footer-content{
+    margin: 0 auto;
+    text-align: left;
+}
+
+footer p{
+    line-height: 30px;
+}
+
+.Copyright{
+    text-align: center;
+}
